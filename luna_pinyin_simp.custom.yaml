@@ -26,7 +26,6 @@
 #
 
 patch:
-
   switches:
     - name: ascii_mode
       reset: 0
@@ -43,7 +42,7 @@ patch:
 
   simplifier:
     option_name: zh_simp
-    
+
   engine:
     processors:
       - ascii_composer
@@ -73,7 +72,7 @@ patch:
 #  translator:
 #    enable_charset_filter: true #启用罕见字過濾
 
- # 加載 easy_en 依賴
+  # 加載 easy_en 依賴
   "schema/dependencies/@next": easy_en
   # 載入翻譯英文的碼表翻譯器，取名爲 english
   "engine/translators/@next": table_translator@english
@@ -84,32 +83,32 @@ patch:
     enable_completion: false
     enable_sentence: false
     initial_quality: -3
-      
- # 載入朙月拼音擴充詞庫
-  "translator/dictionary": luna_pinyin.extended
+
+  # 載入朙月拼音擴充詞庫
+  "translator/dictionary": luna_pinyin.custom
   # 改寫拼寫運算，使得含西文的詞彙（位於 luna_pinyin.cn_en.dict.yaml 中）不影響簡拼功能（注意，此功能只適用於朙月拼音系列方案，不適用於各類雙拼方案）
   # 本條補靪只在「小狼毫 0.9.30」、「鼠鬚管 0.9.25 」、「Rime-1.2」及更高的版本中起作用。
   "speller/algebra/@before 0": xform/^([b-df-hj-np-tv-z])$/$1_/
 
 
-#  符号快速输入和部分符号的快速上屏
-#  punctuator:
-#    import_preset: symbols
-#    half_shape:
-#      "#": "#"
-#      "`": "`"
-#      "~": "~"
-#      "@": "@"
-#      "=": "="
-#      "!": "!"
-#      "/": ["/", "÷"]
-#      '\': "、"
-#      "'": {pair: ["「", "」"]}
-#      "[": ["【", "["]
-#      "]": ["】", "]"]
-#      "$": ["¥", "$", "€", "£", "¢", "¤"]
-#      "<": ["《", "〈", "«", "<"]
-#      ">": ["》", "〉", "»", ">"]
+  #  符号快速输入和部分符号的快速上屏
+  # punctuator:
+  #   import_preset: symbols
+  #   half_shape:
+  #     "#": "#"
+  #     "`": "`"
+  #     "~": "~"
+  #     "@": "@"
+  #     "=": "="
+  #     "!": "!"
+  #     "/": ["/", "÷"]
+  #     '\': "、"
+  #     "'": {pair: ["「", "」"]}
+  #     "[": ["【", "["]
+  #     "]": ["】", "]"]
+  #     "$": ["¥", "$", "€", "£", "¢", "¤"]
+  #     "<": ["《", "〈", "«", "<"]
+  #     ">": ["》", "〉", "»", ">"]
 
   recognizer:
     patterns:
@@ -117,9 +116,9 @@ patch:
       uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
       url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
       punct: "^/([a-z]+|[0-9]0?)$"
-      
-     
- # 模糊拼音
+
+
+# 模糊拼音
   'speller/algebra':
     - erase/^xx$/                      # 第一行保留
 
@@ -167,7 +166,7 @@ patch:
     - derive/iu$/iou/                  # jiu = jiou,
 
     # 自動糾正一些常見的按鍵錯誤
-    - derive/([aeiou])ng$/$1gn/        # dagn => dang 
+    - derive/([aeiou])ng$/$1gn/        # dagn => dang
     - derive/([dtngkhrzcs])o(u|ng)$/$1o/  # zho => zhong|zhou
     - derive/ong$/on/                  # zhonguo => zhong guo
     - derive/ao$/oa/                   # hoa => hao

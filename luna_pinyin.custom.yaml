@@ -1,10 +1,16 @@
 #  luna_pinyin.custom.yaml
 patch:
+    speller/algebra:
+        - erase/^xx$/
+    engine/filters:
+        - simplifier
+        - uniquifier
+        - charset_filter@gb2312+emoji  # https://github.com/rime/librime/pull/293
     engine/translators:
         - punct_translator
         - r10n_translator
         - reverse_lookup_translator
-   recognizer/patterns/reverse_lookup: "`[a-z]*$ " #请删除$后的空格！不加一个空格貌似总是解析错误，不知道MarkDown我还有多少不知道的地方:(
+    recognizer/patterns/reverse_lookup: "`[a-z]*$" #请删除$后的空格！不加一个空格貌似总是解析错误，不知道MarkDown我还有多少不知道的地方:(
     schema/dependencies:
         - emoji
     abc_segmentor/extra_tags:
