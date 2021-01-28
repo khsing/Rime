@@ -106,3 +106,4 @@ ENV/
 *.userdb
 user.yaml
 installation.yaml
+trash
