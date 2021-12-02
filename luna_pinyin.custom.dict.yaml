@@ -5,9 +5,7 @@ version: "2018.10.05"
 sort: by_weight
 use_preset_vocabulary: true
 import_tables:
-    #- luna_pinyin.extended # include next 4 dict
     - luna_pinyin
-    #- luna_pinyin.hanyu
     - luna_pinyin.poetry
     - luna_pinyin.chinese_common_words
     - luna_pinyin.sogou_chengyusuyu
@@ -20,11 +18,3 @@ import_tables:
     - luna_pinyin.name
     - luna_pinyin.movie
     - luna_pinyin.music
-    - luna_pinyin.emoji
-    - luna_pinyin.emoji.apple
-    - luna_pinyin.emoji.cldr
-    - luna_pinyin.emoji.scomper
-
-...
-
-卧槽 wo cao 1
